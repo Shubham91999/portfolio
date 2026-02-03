@@ -83,12 +83,12 @@ export default function About() {
                 {/* Container for the image with its own subtle animation */}
                 <div className="absolute inset-[-2px]">
                   <Image
-                    src="/images/shubham-profile.jpg"
+                    loader={imageLoader}
+                    src="images/shubham-profile.jpg"
                     alt="Profile"
                     fill
                     className="object-cover object-center"
                     priority
-                    unoptimized={true}
                   />
                 </div>
               </motion.div>
