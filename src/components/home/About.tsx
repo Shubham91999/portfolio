@@ -33,7 +33,7 @@ export default function About() {
               <div className="absolute inset-0 w-full h-full">
                 <Image
                   loader={imageLoader}
-                  src={isDark ? "images/bg-dark.png" : "images/peach.png"}
+                  src={isDark ? "images/bg-dark.png" : "images/about-bg-light.png"}
                   alt="Background"
                   fill
                   className="object-cover object-left"
