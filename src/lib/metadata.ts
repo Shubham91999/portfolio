@@ -212,6 +212,75 @@ export const education = [
   },
 ];
 
+export const certifications = [
+  {
+    title: "Deep Learning with Torch",
+    issuer: "DataCamp",
+    date: "Nov 2025",
+    link: "https://www.datacamp.com/completed/statement-of-accomplishment/course/c98a9dd010ce1ff25f84e17d8e156b76fd9c7988"
+  },
+  {
+    title: "AWS Academy Cloud Architecting",
+    issuer: "AWS",
+    date: "Nov 2024",
+    link: "https://www.credly.com/badges/aa9ba597-b69d-4ec2-9944-239bad74246c/linked_in_profile"
+  },
+  {
+    title: "Supervised Machine Learning: Regression and Classification",
+    issuer: "Stanford University",
+    date: "Mar 2025",
+    link: "https://www.coursera.org/account/accomplishments/verify/4ZGKGZ7KJEO9"
+  },
+  {
+    title: "Machine Learning with Python",
+    issuer: "IBM",
+    date: "Nov 2019",
+    link: "https://www.coursera.org/account/accomplishments/certificate/PGMKE4RQ89TG"
+  },
+  {
+    title: "Agile Software Development",
+    issuer: "University of Minnesota",
+    date: "Jan 2024",
+    link: "https://www.coursera.org/account/accomplishments/certificate/GEL8XDQ7LRDC"
+  },
+  {
+    title: "PeopleSoft PeopleTools 8.5x Certified Implementation Specialist",
+    issuer: "Oracle",
+    date: "Sep 2021",
+    link: "https://www.linkedin.com/in/shubham9199/overlay/Certifications/308808128/treasury/?profileId=ACoAABrZ2bwBT9wdlsxW2iSi568Zj1b3jGyAMbk"
+  },
+  {
+    title: "Intermediate Technical Interview Prep",
+    issuer: "CodePath",
+    date: "Nov 2025",
+    link: "https://www.linkedin.com/in/shubham9199/overlay/Certifications/957939629/treasury/?profileId=ACoAABrZ2bwBT9wdlsxW2iSi568Zj1b3jGyAMbk"
+  },
+  {
+    title: "Intro to Web Development",
+    issuer: "CodePath",
+    date: "Nov 2025",
+    link: "https://www.linkedin.com/in/shubham9199/overlay/Certifications/957796861/treasury/?profileId=ACoAABrZ2bwBT9wdlsxW2iSi568Zj1b3jGyAMbk"
+  },
+  {
+    title: "HackerRank SQL(Intermediate) Certification",
+    issuer: "HackerRank",
+    date: "Mar 2025",
+    link: "https://www.hackerrank.com/certificates/iframe/65e786191207"
+  },
+  {
+    title: "HackerRank SQL(Basic) Certification",
+    issuer: "HackerRank",
+    date: "Mar 2025",
+    link: "https://www.hackerrank.com/certificates/iframe/4c084acd7b64"
+  },
+  {
+    title: "Successful Presentation",
+    issuer: "University of Colorado",
+    date: "Dec 2020",
+    link: "https://www.coursera.org/account/accomplishments/certificate/RGSNSMW7SL7A"
+  }
+];
+
 export const projects = [
   {
     id: 1,
