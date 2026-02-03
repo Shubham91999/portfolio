@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #000000;
+  --vh: 100%;
+}
+
+.dark {
+  --background: #000000;
+  --foreground: #ffffff;
+}
+
+/* Mobile viewport height fix */
+@supports (-webkit-touch-callout: none) {
+  .h-screen {
+    height: -webkit-fill-available;
+  }
+
+  .min-h-screen {
+    min-height: -webkit-fill-available;
+  }
+
+  .max-h-screen {
+    max-height: -webkit-fill-available;
+  }
+}
+
+/* Enhanced dot pattern with better visibility */
+.bg-dot-pattern {
+  background-image: radial-gradient(
+    circle at center,
+    rgba(0, 0, 0, 0.15) 2px,
+    transparent 2px
+  );
+  background-size: 24px 24px;
+  background-position: 0 0;
+}
+
+.dark .bg-dot-pattern {
+  background-image: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.15) 2px,
+    transparent 2px
+  );
+}
+
+/* 3D Card Styles */
+.transform-3d {
+  transform-style: preserve-3d;
+}
+
+.perspective {
+  perspective: 1000px;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+/* Glass morphism effect */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark .glass-effect {
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Gradient text utility */
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  /* Custom viewport height utilities */
+  .h-screen-dynamic {
+    height: 100vh; /* Fallback */
+    height: calc(var(--vh, 1vh) * 100);
+  }
+
+  .min-h-screen-dynamic {
+    min-height: 100vh; /* Fallback */
+    min-height: calc(var(--vh, 1vh) * 100);
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+  height: -webkit-fill-available;
+}
+body {
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(156, 163, 175, 0.5);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(156, 163, 175, 0.7);
+}
+
+/* Dark mode scrollbar */
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(75, 85, 99, 0.5);
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: rgba(75, 85, 99, 0.7);
+}
