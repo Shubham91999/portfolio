@@ -1,11 +1,11 @@
 'use client';
 
-import React from "react";
-import { AnimatePresence, motion, useScroll, useSpring } from "framer-motion";
+import React, { useState } from "react";
+import { motion, useScroll, useSpring, AnimatePresence } from "framer-motion";
 import { cn } from "../../utils/cn";
 import { CardHoverEffect } from "../ui/card-hover-effect";
 import { education } from "../../lib/metadata";
-import { FaGraduationCap, FaXmark } from "react-icons/fa6";
+import { FaGraduationCap } from "react-icons/fa6";
 
 interface Education {
   title: string;
@@ -18,8 +18,75 @@ interface Education {
 
 const educationIcons = [FaGraduationCap];
 
+const EducationCard = ({ edu }: { edu: Education }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  return (
+    <div onClick={() => setIsExpanded(!isExpanded)} className="cursor-pointer">
+      <CardHoverEffect>
+        <div className="p-4 sm:p-6">
+          <div className="flex justify-between items-start mb-2">
+            <h3 className="text-base sm:text-lg font-semibold text-neutral-900 dark:text-white group-hover:text-purple-500 transition-colors">
+              {edu.title}
+            </h3>
+            <motion.div
+              animate={{ rotate: isExpanded ? 180 : 0 }}
+              transition={{ duration: 0.3 }}
+              className="text-neutral-500 dark:text-neutral-400 ml-2 mt-1"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="m6 9 6 6 6-6" />
+              </svg>
+            </motion.div>
+          </div>
+
+          <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2 text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 mb-2">
+            <span className="font-medium">{edu.institution}</span>
+            <span className="hidden sm:inline">•</span>
+            <span>{edu.location}</span>
+          </div>
+
+          <AnimatePresence>
+            {isExpanded && (
+              <motion.div
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: "auto", opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+                className="overflow-hidden"
+              >
+                <div className="pt-4 border-t border-zinc-100 dark:border-zinc-800 mt-4">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div>
+                      <div className="text-xs text-neutral-500 uppercase tracking-widest mb-1 italic">CGPA</div>
+                      <div className="text-xl font-bold text-purple-600 dark:text-purple-400 italic">{edu.cgpa}</div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h4 className="text-xs font-bold text-neutral-900 dark:text-white uppercase tracking-widest mb-3">Core Coursework</h4>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                      {edu.coursework.map((course, i) => (
+                        <div key={i} className="flex items-center gap-2 group/item">
+                          <div className="w-1.5 h-1.5 rounded-full bg-purple-500/40 group-hover/item:bg-purple-500 transition-colors" />
+                          <span className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400">{course}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+
+        </div>
+      </CardHoverEffect>
+    </div>
+  );
+};
+
 export default function EducationSection() {
-  const [selectedId, setSelectedId] = React.useState<number | null>(null);
   const ref = React.useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -32,15 +99,6 @@ export default function EducationSection() {
     restDelta: 0.001,
     mass: 0.1,
   });
-
-  // Handle escape key to close modal
-  React.useEffect(() => {
-    const handleEsc = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setSelectedId(null);
-    };
-    window.addEventListener("keydown", handleEsc);
-    return () => window.removeEventListener("keydown", handleEsc);
-  }, []);
 
   return (
     <section id="education" className="py-12 sm:py-24 bg-white dark:bg-black relative">
@@ -127,95 +185,14 @@ export default function EducationSection() {
                     "cursor-pointer group",
                     idx % 2 === 0 ? "sm:ml-auto" : "sm:mr-auto"
                   )}
-                  onClick={() => setSelectedId(idx)}
                 >
-                  <CardHoverEffect>
-                    <div className="p-4 sm:p-6 transition-colors group-hover:bg-purple-500/5">
-                      <h3 className="text-base sm:text-lg font-semibold text-neutral-900 dark:text-white mb-2 group-hover:text-purple-500 transition-colors">
-                        {edu.title}
-                      </h3>
-
-                      <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2 text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 mb-2">
-                        <span className="font-medium">{edu.institution}</span>
-                        <span className="hidden sm:inline">•</span>
-                        <span>{edu.location}</span>
-                      </div>
-                      <div className="text-xs text-purple-500/60 font-medium italic">
-                        Click for details
-                      </div>
-                    </div>
-                  </CardHoverEffect>
+                  <EducationCard edu={edu} />
                 </motion.div>
               </div>
             ))}
           </div>
         </div>
       </div>
-
-      <AnimatePresence>
-        {selectedId !== null && (
-          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setSelectedId(null)}
-              className="absolute inset-0 bg-black/60 backdrop-blur-md"
-            />
-
-            <motion.div
-              layoutId={`card-${selectedId}`}
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className="relative w-full max-w-2xl bg-white dark:bg-neutral-900 rounded-2xl shadow-2xl overflow-hidden border border-purple-500/20"
-            >
-              <button
-                onClick={() => setSelectedId(null)}
-                className="absolute top-4 right-4 p-2 rounded-full bg-neutral-100 dark:bg-neutral-800 text-neutral-500 hover:text-purple-500 transition-colors z-10"
-              >
-                <FaXmark className="w-5 h-5" />
-              </button>
-
-              <div className="p-6 sm:p-10">
-                <div className="mb-6">
-                  <span className="inline-block px-3 py-1 rounded-full bg-purple-500/10 text-purple-500 text-xs font-bold mb-3 uppercase tracking-wider">
-                    {education[selectedId].date}
-                  </span>
-                  <h3 className="text-2xl sm:text-3xl font-bold text-neutral-900 dark:text-white mb-2">
-                    {education[selectedId].title}
-                  </h3>
-                  <div className="text-lg text-neutral-600 dark:text-neutral-400 font-medium">
-                    {education[selectedId].institution}
-                  </div>
-                  <div className="text-neutral-500 mb-6">
-                    {education[selectedId].location}
-                  </div>
-
-                  <div className="flex items-center gap-4 py-4 border-y border-purple-500/10 mb-8">
-                    <div>
-                      <div className="text-xs text-neutral-500 uppercase tracking-widest mb-1 italic">CGPA</div>
-                      <div className="text-2xl font-bold text-purple-500 italic">{education[selectedId].cgpa}</div>
-                    </div>
-                  </div>
-
-                  <div>
-                    <h4 className="text-sm font-bold text-neutral-900 dark:text-white uppercase tracking-widest mb-4">Core Coursework</h4>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                      {education[selectedId].coursework.map((course, i) => (
-                        <div key={i} className="flex items-center gap-2 group/item">
-                          <div className="w-1.5 h-1.5 rounded-full bg-purple-500/40 group-hover/item:bg-purple-500 transition-colors" />
-                          <span className="text-sm text-neutral-600 dark:text-neutral-400">{course}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        )}
-      </AnimatePresence>
     </section>
   );
 }

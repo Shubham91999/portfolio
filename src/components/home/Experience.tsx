@@ -1,7 +1,7 @@
 'use client';
 
-import React from "react";
-import { motion, useScroll, useSpring } from "framer-motion";
+import React, { useState } from "react";
+import { motion, useScroll, useSpring, AnimatePresence } from "framer-motion";
 import { cn } from "../../utils/cn";
 import { CardHoverEffect } from "../ui/card-hover-effect";
 import { experiences } from "../../lib/metadata";
@@ -13,7 +13,7 @@ interface Experience {
   location: string;
   type: string;
   date: string;
-  // description: string;
+  desc: string[];
   skills: string[];
 }
 
@@ -34,6 +34,67 @@ const TechBadge = ({ children }: { children: React.ReactNode }) => {
 };
 
 const icons = [FaEarthAmericas, FaPenFancy, FaReact];
+
+const ExperienceCard = ({ experience }: { experience: Experience }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  return (
+    <div onClick={() => setIsExpanded(!isExpanded)} className="cursor-pointer">
+      <CardHoverEffect>
+        <div className="p-4 sm:p-6">
+          <div className="flex justify-between items-start mb-2">
+            <h3 className="text-base sm:text-lg font-semibold text-neutral-900 dark:text-white">
+              {experience.title}
+            </h3>
+            <motion.div
+              animate={{ rotate: isExpanded ? 180 : 0 }}
+              transition={{ duration: 0.3 }}
+              className="text-neutral-500 dark:text-neutral-400 ml-2 mt-1"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="m6 9 6 6 6-6" />
+              </svg>
+            </motion.div>
+          </div>
+
+          <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2 text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 mb-3 sm:mb-4">
+            <span className="font-medium">{experience.company}</span>
+            <span className="hidden sm:inline">•</span>
+            <span>{experience.location}</span>
+          </div>
+
+          <AnimatePresence>
+            {isExpanded && (
+              <motion.div
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: "auto", opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+                className="overflow-hidden"
+              >
+                <ul className="list-disc list-outside ml-4 mb-4 space-y-1">
+                  {experience.desc.map((point, i) => (
+                    <li key={i} className="text-xs sm:text-sm text-neutral-700 dark:text-neutral-300 leading-relaxed">
+                      {point}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          <div className="flex flex-wrap gap-1.5 sm:gap-2 mt-2">
+            {experience.skills.map((skill: string) => (
+              <TechBadge key={skill}>
+                {skill}
+              </TechBadge>
+            ))}
+          </div>
+        </div>
+      </CardHoverEffect>
+    </div>
+  );
+};
 
 export default function Experience() {
   const ref = React.useRef<HTMLDivElement>(null);
@@ -69,9 +130,9 @@ export default function Experience() {
         <div className="relative" ref={ref}>
           {/* Timeline Line - Hidden on mobile */}
           <div className="hidden sm:block absolute left-1/2 -translate-x-[0.5px] top-0 bottom-0 w-[1px] bg-purple-500/20" />
-          
+
           {/* Beam Effect - Hidden on mobile */}
-          <motion.div 
+          <motion.div
             style={{ scaleY, transformOrigin: "top" }}
             className="hidden sm:block absolute left-1/2 -translate-x-[0.5px] top-0 bottom-0 w-[1px]"
           >
@@ -83,7 +144,7 @@ export default function Experience() {
             {experiences.map((experience: Experience, idx: number) => (
               <div key={idx} className="relative mb-12 sm:mb-24 last:mb-0">
                 {/* Date - Repositioned for mobile */}
-                <motion.div 
+                <motion.div
                   initial={{ opacity: 0, x: idx % 2 === 0 ? -20 : 20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
@@ -91,8 +152,8 @@ export default function Experience() {
                     "text-sm text-purple-500 font-medium mb-2",
                     "sm:absolute sm:top-0",
                     "sm:mb-0",
-                    idx % 2 === 0 
-                      ? "sm:right-[51%] sm:pr-4" 
+                    idx % 2 === 0
+                      ? "sm:right-[51%] sm:pr-4"
                       : "sm:left-[51%] sm:pl-4"
                   )}
                 >
@@ -105,7 +166,7 @@ export default function Experience() {
                     <div className="absolute inset-0 -m-[1px] bg-white dark:bg-black" />
                     <motion.div
                       initial={{ scale: 0, rotate: 0 }}
-                      whileInView={{ 
+                      whileInView={{
                         scale: 1,
                         rotate: 360,
                         transition: {
@@ -125,16 +186,16 @@ export default function Experience() {
 
                 {/* Content Card - Full width on mobile */}
                 <motion.div
-                  initial={{ 
-                    opacity: 0, 
+                  initial={{
+                    opacity: 0,
                     x: idx % 2 === 0 ? 100 : -100,
                   }}
-                  whileInView={{ 
-                    opacity: 1, 
+                  whileInView={{
+                    opacity: 1,
                     x: 0,
                   }}
                   viewport={{ once: true }}
-                  transition={{ 
+                  transition={{
                     duration: 0.5,
                     delay: idx * 0.2,
                     type: "spring",
@@ -146,31 +207,7 @@ export default function Experience() {
                     idx % 2 === 0 ? "sm:ml-auto" : "sm:mr-auto"
                   )}
                 >
-                  <CardHoverEffect>
-                    <div className="p-4 sm:p-6">
-                      <h3 className="text-base sm:text-lg font-semibold text-neutral-900 dark:text-white mb-2">
-                        {experience.title}
-                      </h3>
-
-                      <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2 text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 mb-3 sm:mb-4">
-                        <span className="font-medium">{experience.company}</span>
-                        <span className="hidden sm:inline">•</span>
-                        <span>{experience.location}</span>
-                      </div>
-
-                      {/* <p className="text-xs sm:text-sm text-neutral-700 dark:text-neutral-300 mb-3 sm:mb-4 leading-relaxed">
-                        {experience.description}
-                      </p> */}
-
-                      <div className="flex flex-wrap gap-1.5 sm:gap-2">
-                        {experience.skills.map((skill: string) => (
-                          <TechBadge key={skill}>
-                            {skill}
-                          </TechBadge>
-                        ))}
-                      </div>
-                    </div>
-                  </CardHoverEffect>
+                  <ExperienceCard experience={experience} />
                 </motion.div>
               </div>
             ))}

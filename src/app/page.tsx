@@ -1,5 +1,6 @@
 import About from '../components/home/About';
 import EducationSection from '../components/home/ExperienceEducation';
+import Experience from '../components/home/Experience';
 import Certifications from '../components/home/Certifications';
 import { AllProjects } from '../components/home/AllProjects';
 import Parallax from '../components/home/Parallax';
@@ -12,28 +13,32 @@ export default function Home() {
       <section className="relative h-screen w-full">
         <Parallax />
       </section>
-      
+
       <section className="relative bg-white dark:bg-neutral-950 w-full">
         <About />
       </section>
-      
+
       <section className="relative bg-neutral-50 dark:bg-black w-full">
         <SkillsParallax />
       </section>
-      
+
       <section className="relative bg-white dark:bg-neutral-950 w-full">
-        <AllProjects />
+        <Experience />
       </section>
-      
+
       <section className="relative bg-neutral-50 dark:bg-black w-full">
         <EducationSection />
       </section>
-      
+
       <section className="relative bg-white dark:bg-neutral-950 w-full">
+        <AllProjects />
+      </section>
+
+      <section className="relative bg-neutral-50 dark:bg-black w-full">
         <Certifications />
       </section>
-      
-      <section className="relative bg-neutral-50 dark:bg-black w-full">
+
+      <section className="relative bg-white dark:bg-neutral-950 w-full">
         <Contact />
       </section>
     </div>

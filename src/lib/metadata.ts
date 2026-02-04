@@ -25,7 +25,7 @@ export const siteMetadata = {
   title: 'Shubham Kulkarni | Portfolio',
   description: 'Software Engineer specializing in Full-Stack Development, AI/ML, and Backend Systems.',
   author: 'Shubham Kulkarni',
-  siteUrl: 'https://shubhamkulkarni.com', // Placeholder
+  siteUrl: 'https://shubham-kulkarni.com', // Placeholder
   twitterHandle: '@shubham9199', // Placeholder
   email: 'skulka86@asu.edu',
   phone: '+1 602-570-5459',
@@ -88,7 +88,7 @@ export const skillGroups = [
   {
     category: "Languages",
     skills: [
-      { name: "Java", icon: FaJava, color: "#007396" },
+      { name: "Java", icon: FaJava, color: "#009652ff" },
       { name: "Python", icon: SiPython, color: "#3776AB" },
       { name: "C++", icon: SiCplusplus, color: "#00599C" },
       { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
@@ -157,18 +157,64 @@ export const skillGroups = [
 // Placeholders for Projects, Education, and Experience (to be updated later)
 export const experiences = [
   {
-    title: "Software Engineer",
-    company: "Placeholder Company",
+    title: "AI/ML Intern",
+    company: "PACCAR (Kenworth Truck Company)",
     location: "Seattle, WA",
-    type: "Full-time",
-    date: "2024 - Present",
-    skills: ["React", "Node.js", "AWS"],
+    type: "Internship",
+    date: "May 2025 - Jan 2026",
+    skills: ["Python", "FastAPI", "Java", "AWS", "React", "Next.js", "TypeScript", "Docker", "Kubernetes"],
+    desc: [
+      "Developed backend microservices for ML-driven recommendations via APIs, achieving 94% accuracy in generation and delivering $780K in operational savings.",
+      "Engineered robust CI/CD pipelines using Docker and GitHub Actions for AWS EKS (Kubernetes) deployments, reducing feedback cycles from 4 days to 3 hours.",
+      "Designed and implemented an internal platform automation service, cutting engineering report generation time by 60% and manual effort by 98%.",
+      "Contributed to Next.js frontend integration with backend services, enhancing user experience and application responsiveness for internal tools."
+    ]
   },
+  {
+    title: "Graduate Teaching Assistant",
+    company: "Arizona State University",
+    location: "Tempe, AZ",
+    type: "Part-time",
+    date: "Jan 2025 - May 2025",
+    skills: ["DBMS", "SQL", "MySQL", "PostgreSQL", "Data Modeling"],
+    desc: [
+      "Assisted in teaching Database Management System course to 200+ students across 3 sessions.",
+      "Held office hours and solved student's queries and issues, demonstrating strong communication and collaboration skills."
+    ]
+  },
+  {
+    title: "Software Engineer",
+    company: "Capgemini",
+    location: "Bengaluru, India",
+    type: "Full-time",
+    date: "Nov 2020 - Aug 2023", // Note: Dates provided by user seem futuristic or typos (2025-2026?), assuming correct as per input
+    skills: ["Java", "Spring Boot", "TypeScript", "Hibernate", "React", "Next.js", "Kafka", "Docker", "AWS"],
+    desc: [
+      "Developed and enhanced Java Spring Boot backend services, delivering 12+ REST APIs and reducing change turnaround time by 25–35%.",
+      "Wrote JUnit test suites for critical Java services, increasing coverage by 49% and cutting production regressions by 15–25%.",
+      "Implemented Kafka-based asynchronous processing in Java, boosting throughput by 76% and improving peak-load stability.",
+      "Automated CI/CD processes with Jenkins pipelines (build/test/package/deploy), reducing deployment time by 56% and improving release frequency.",
+      "Built and packaged Java services with Maven, reducing build failures by 32% by standardizing dependency versions and build profiles.",
+      "Contributed to Next.js-based frontend development for client-facing applications, focusing on component reusability and performance optimization."
+    ]
+  },
+  {
+    title: "Software Engineer Intern",
+    company: "iFuture Technologies",
+    location: "Mumbai, India",
+    type: "Internship",
+    date: "May 2019 - Jul 2019",
+    skills: ["Java", "Spring Boot", "React", "JavaScript", "MongoDB", "AWS"],
+    desc: [
+      "Wrote and optimized SQL analytics queries to analyze financial datasets, identify cost drivers, and deliver insights resulting in a 10% reduction in operational costs via improved resource allocation.",
+      "Implemented a resilient API Gateway Service with OAuth2 user authentication system using Java, JWT Tokens, and Spring Boot, reducing authentication errors by 85% across the Intelligent Automation team."
+    ]
+  }
 ];
 
 export const education = [
   {
-    title: "Master of Science in Computer Science",
+    title: "Master of Science in Information Technology",
     institution: "Arizona State University",
     location: "Tempe, AZ",
     date: "2023 - 2025",
@@ -182,7 +228,7 @@ export const education = [
   },
   {
     title: "Bachelor of Science in Information Technology",
-    institution: "Mumbai University",
+    institution: "University of Mumbai",
     location: "Mumbai, India",
     date: "2017 - 2020",
     cgpa: "9.0/10.0",
@@ -197,7 +243,7 @@ export const education = [
   },
   {
     title: "Technical Diploma in Information Technology",
-    institution: "Government Polytechnic Thane",
+    institution: "University of Mumbai",
     location: "Mumbai, India",
     date: "2014 - 2017",
     cgpa: "4.0/4.0",

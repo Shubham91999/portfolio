@@ -43,7 +43,7 @@ export default function Certifications() {
                 transition={{ duration: 0.4, delay: index * 0.05 }}
                 className="h-full"
               >
-                <CardHoverEffect className="!bg-zinc-50 dark:!bg-[#1e1e24] !border-zinc-200 dark:!border-zinc-800 backdrop-blur-sm shadow-md h-full border">
+                <CardHoverEffect className="!bg-white dark:!bg-neutral-900 !border-zinc-200 dark:!border-zinc-800 backdrop-blur-sm shadow-md h-full border">
                   <div className="p-6 flex flex-col justify-between h-full">
                     <div>
                       <div className="flex justify-between items-start mb-2 gap-4">
