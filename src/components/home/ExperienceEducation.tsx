@@ -113,7 +113,7 @@ export default function EducationSection() {
             Education
           </h2>
           <p className="text-sm sm:text-base text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto mb-8">
-            Click on a card to see more details about my coursework and academic performance.
+            My academic performance and coursework
           </p>
         </motion.div>
 

@@ -123,7 +123,7 @@ export default function Experience() {
             Experience
           </h2>
           <p className="text-sm sm:text-base text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">
-            My professional journey in Software Development
+            What I have done so far
           </p>
         </motion.div>
 

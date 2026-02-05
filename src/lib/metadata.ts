@@ -327,6 +327,10 @@ export const certifications = [
   }
 ];
 
+export type ProjectCategory = "All" | "AI/ML" | "Data" | "Full Stack";
+
+export const projectCategories: ProjectCategory[] = ["All", "AI/ML", "Data", "Full Stack"];
+
 export const projects = [
   {
     id: 1,
@@ -339,5 +343,172 @@ export const projects = [
       { icon: SiTailwindcss, color: "#38B2AC" },
     ],
     link: "https://github.com/Shubham91999/portfolio",
+    category: "Full Stack" as ProjectCategory,
+  },
+  {
+    id: 2,
+    title: "Economic Data Analysis",
+    des: "Exploratory data analysis of US economic indicators including unemployment rates, labor participation, and S&P 500 performance with detailed visualizations.",
+    img: "images/projects/economic_data_analysis.png",
+    icons: [
+      { icon: SiPython, color: "#3776AB" },
+      { icon: SiChartdotjs, color: "#FF6384" },
+    ],
+    link: "https://github.com/Shubham91999/Economic_Data_Analysis.git",
+    category: "Data" as ProjectCategory,
+  },
+  {
+    id: 3,
+    title: "London Bike Rides Analysis",
+    des: "Data analysis and interactive visualization of London bike sharing trends using Python and Tableau.",
+    img: "images/projects/london_bike_rides.png",
+    icons: [
+      { icon: SiPython, color: "#3776AB" },
+      { icon: SiChartdotjs, color: "#FF6384" },
+    ],
+    link: "https://github.com/Shubham91999/LondonBikeRides_Analysis",
+    category: "Data" as ProjectCategory,
+  },
+  {
+    id: 4,
+    title: "Electric Vehicle Data Analysis",
+    des: "Analyzing Electric Vehicle (EV) adoption, market trends, and manufacturer performance across the United States.",
+    img: "images/projects/ev_data_analysis.png",
+    icons: [
+      { icon: SiPython, color: "#3776AB" },
+      { icon: SiChartdotjs, color: "#FF6384" },
+    ],
+    link: "https://github.com/Shubham91999/EV_DataAnalysis",
+    category: "Data" as ProjectCategory,
+  },
+  {
+    id: 5,
+    title: "Car Sales Analytics Dashboard",
+    des: "Analyzing car sales performance, regional distribution, and company-wise revenue trends.",
+    img: "images/projects/car_sales_analytics.png",
+    icons: [
+      { icon: SiPython, color: "#3776AB" },
+      { icon: SiChartdotjs, color: "#FF6384" },
+    ],
+    link: "https://github.com/Shubham91999/Car-Sales-Analytics",
+    category: "Data" as ProjectCategory,
+  },
+  {
+    id: 6,
+    title: "HR Analytics Dashboard",
+    des: "Interactive Tableau dashboard analyzing employee attrition trends. Uncovers workforce insights on turnover drivers, demographics, and job satisfaction to support data-driven HR strategies.",
+    img: "images/projects/hr_analytics_dashboard.png",
+    icons: [
+      { icon: SiPython, color: "#3776AB" },
+      { icon: SiChartdotjs, color: "#FF6384" },
+    ],
+    link: "https://github.com/Shubham91999/HR_Analytics_Dashboard",
+    category: "Data" as ProjectCategory,
+  },
+  {
+    id: 7,
+    title: "US Border Crossing Analysis",
+    des: "Visualizing the US Border Crossings through data. Python EDA + Interactive Tableau Dashboard.",
+    img: "images/projects/us_border_crossing.png",
+    icons: [
+      { icon: SiPython, color: "#3776AB" },
+      { icon: SiChartdotjs, color: "#FF6384" },
+    ],
+    link: "https://github.com/Shubham91999/US-Border-Crossing-Analysis",
+    category: "Data" as ProjectCategory,
+  },
+  {
+    id: 8,
+    title: "Video Game Sales Analytics Dashboard",
+    des: "Comprehensive Tableau dashboard visualizing global video game sales data, market trends, and industry KPIs.",
+    img: "images/projects/video_game_sales.png",
+    icons: [
+      { icon: SiPython, color: "#3776AB" },
+      { icon: SiChartdotjs, color: "#FF6384" },
+    ],
+    link: "https://github.com/Shubham91999/Sales_Analysis",
+    category: "Data" as ProjectCategory,
+  },
+  {
+    id: 9,
+    title: "Cosmos Dashboard: Astronomical Visualization",
+    des: "A modern, full-stack dashboard for exploring the stars. Transform raw astronomical data and FITS imagery into interactive, scientific visualizations.",
+    img: "images/projects/cosmos_dashboard.png",
+    icons: [
+      { icon: SiPython, color: "#3776AB" },
+      { icon: SiDocker, color: "#2496ED" },
+      { icon: SiJavascript, color: "#F7DF1E" },
+    ],
+    link: "https://github.com/Shubham91999/Astronomical_Visualization",
+    category: "AI/ML" as ProjectCategory,
+  },
+  {
+    id: 10,
+    title: "GenreSense",
+    des: "An AI-powered music classification system. Effortlessly search, play, and identify music genres using a custom PCA + Logistic Regression pipeline.",
+    img: "images/projects/genresense.png",
+    icons: [
+      { icon: SiPython, color: "#3776AB" },
+      { icon: SiScikitlearn, color: "#F7931E" },
+      { icon: SiTypescript, color: "#3178C6" },
+      { icon: SiTailwindcss, color: "#38B2AC" },
+    ],
+    link: "https://github.com/Shubham91999/GenreSense",
+    category: "AI/ML" as ProjectCategory,
+  },
+  {
+    id: 11,
+    title: "TaskAI",
+    des: "A modern, feature-rich todo application built with React and TypeScript.",
+    img: "images/projects/taskai.png",
+    icons: [
+      { icon: SiReact, color: "#61DAFB" },
+      { icon: SiTypescript, color: "#3178C6" },
+      { icon: SiNodedotjs, color: "#339933" },
+      { icon: SiTailwindcss, color: "#38B2AC" },
+    ],
+    link: "https://github.com/Shubham91999/TaskAI",
+    category: "Full Stack" as ProjectCategory,
+  },
+  {
+    id: 12,
+    title: "SocialPulse",
+    des: "A scalable social media backend built with FastAPI, providing RESTful APIs for user authentication, posts, likes, and interactions, designed for high performance and clean architecture.",
+    img: "images/projects/socialpulse.png",
+    icons: [
+      { icon: SiFastapi, color: "#05998B" },
+      { icon: SiReact, color: "#61DAFB" },
+      { icon: SiDocker, color: "#2496ED" },
+      { icon: SiTailwindcss, color: "#38B2AC" },
+    ],
+    link: "https://github.com/Shubham91999/SocialMedia_FastAPI",
+    category: "Full Stack" as ProjectCategory,
+  },
+  {
+    id: 13,
+    title: "AeroML",
+    des: "A full-stack web application for predicting aerodynamic drag (CdA) based on truck configuration using machine learning. The application consists of a FastAPI backend and React frontend with a modern, responsive UI.",
+    img: "images/projects/aeroml.png",
+    icons: [
+      { icon: SiFastapi, color: "#05998B" },
+      { icon: SiReact, color: "#61DAFB" },
+      { icon: SiDocker, color: "#2496ED" },
+      { icon: SiTailwindcss, color: "#38B2AC" },
+    ],
+    link: "https://github.com/Shubham91999/Test-Aero",
+    category: "AI/ML" as ProjectCategory,
+  },
+  {
+    id: 14,
+    title: "Credit Card Fraud Detection",
+    des: "Deep learning–based binary classification model built with Keras to detect fraudulent credit card transactions.",
+    img: "images/projects/fraud_detection.jpg",
+    icons: [
+      { icon: SiPython, color: "#3776AB" },
+      { icon: SiTensorflow, color: "#FF6F00" },
+      { icon: SiScikitlearn, color: "#F7931E" },
+    ],
+    link: "https://github.com/Shubham91999/Credit-Card-Fraud-Detection",
+    category: "AI/ML" as ProjectCategory,
   },
 ];
