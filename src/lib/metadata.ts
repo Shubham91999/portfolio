@@ -38,7 +38,7 @@ export const siteMetadata = {
   ],
   firstName: 'Shubham',
   lastName: 'Kulkarni',
-  bio: 'Software Engineer who loves Data, Machine Learning and Generative AI. I build scalable, intelligent solutions with precision.',
+  bio: 'Passionate about data, machine learning, and generative AI, I build scalable and intelligent systems with precision. I design and develop end-to-end AI and ML products, from training models and building APIs to deploying scalable backend services and frontends in the cloud.',
   social: {
     linkedin: 'https://www.linkedin.com/in/shubham9199/',
     github: 'https://github.com/Shubham91999',

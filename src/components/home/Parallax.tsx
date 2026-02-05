@@ -224,7 +224,7 @@ const Parallax = () => {
         className="absolute top-[12%] sm:top-1/4 left-1/2 -translate-x-1/2 text-center z-10 w-full px-4 sm:px-0"
       >
         <p className={`${spaceGrotesk.className} text-[10px] xs:text-xs sm:text-sm md:text-lg text-white/80 mb-2 mx-auto tracking-wide font-light`}>
-          From logic to Legos, I build solutions with precision.
+          From models to production — I build AI-powered full-stack applications.
         </p>
         <h1 className={`${playfair.className} text-xl xs:text-2xl sm:text-4xl md:text-6xl lg:text-8xl font-bold text-white mb-2 sm:mb-4 tracking-wider`}>
           {siteMetadata.author}
