@@ -101,10 +101,10 @@ export const skillGroups = [
     skills: [
       { name: "Spring Boot", icon: SiSpringboot, color: "#6DB33F" },
       { name: "FastAPI", icon: SiFastapi, color: "#05998B" },
-      { name: "Django", icon: SiDjango, color: "#092E20" },
+      { name: "Django", icon: SiDjango, color: "#092E20", darkColor: "#0C4B33" },
       { name: "React.js", icon: SiReact, color: "#61DAFB" },
-      { name: "Express.js", icon: SiExpress, color: "#000000" },
-      { name: "Next.js", icon: SiNextdotjs, color: "#000000" },
+      { name: "Express.js", icon: SiExpress, color: "#000000", darkColor: "#68A063" },
+      { name: "Next.js", icon: SiNextdotjs, color: "#000000", darkColor: "#FFFFFF" },
       { name: "SQLAlchemy", icon: SiSqlalchemy, color: "#D71F00" },
       { name: "Pydantic", icon: SiPydantic, color: "#E92063" },
     ]
@@ -118,7 +118,7 @@ export const skillGroups = [
       { name: "Sentence Transformers", icon: FaRobot, color: "#FFD21E" },
       { name: "Word2Vec", icon: FaBrain, color: "#FFD21E" },
       { name: "HuggingFace", icon: FaRobot, color: "#FFD21E" },
-      { name: "LangChain", icon: FaBrain, color: "#121212" },
+      { name: "LangChain", icon: FaBrain, color: "#121212", darkColor: "#00C853" },
     ]
   },
   {
@@ -135,7 +135,7 @@ export const skillGroups = [
     category: "DevOps",
     skills: [
       { name: "Git", icon: SiGit, color: "#F05032" },
-      { name: "GitHub", icon: SiGithub, color: "#181717" },
+      { name: "GitHub", icon: SiGithub, color: "#181717", darkColor: "#FFFFFF" },
       { name: "Docker", icon: SiDocker, color: "#2496ED" },
       { name: "Kubernetes", icon: SiKubernetes, color: "#326CE5" },
       { name: "AWS", icon: FaAws, color: "#FF9900" },
@@ -145,11 +145,11 @@ export const skillGroups = [
   {
     category: "Other",
     skills: [
-      { name: "DSA", icon: FaCode, color: "#000000" },
-      { name: "OOP", icon: FaCubes, color: "#000000" },
-      { name: "Design Patterns", icon: FaProjectDiagram, color: "#000000" },
-      { name: "Agile Development", icon: FaSync, color: "#000000" },
-      { name: "Kafka", icon: SiApachekafka, color: "#231F20" },
+      { name: "DSA", icon: FaCode, color: "#000000", darkColor: "#8B5CF6" },
+      { name: "OOP", icon: FaCubes, color: "#000000", darkColor: "#8B5CF6" },
+      { name: "Design Patterns", icon: FaProjectDiagram, color: "#000000", darkColor: "#8B5CF6" },
+      { name: "Agile Development", icon: FaSync, color: "#000000", darkColor: "#8B5CF6" },
+      { name: "Kafka", icon: SiApachekafka, color: "#231F20", darkColor: "#FFFFFF" },
     ]
   }
 ];
@@ -157,7 +157,7 @@ export const skillGroups = [
 // Placeholders for Projects, Education, and Experience (to be updated later)
 export const experiences = [
   {
-    title: "AI/ML Intern",
+    title: "AI/ML Engineer Intern",
     company: "PACCAR (Kenworth Truck Company)",
     location: "Seattle, WA",
     type: "Internship",
@@ -195,7 +195,7 @@ export const experiences = [
       "Implemented Kafka-based asynchronous processing in Java, boosting throughput by 76% and improving peak-load stability.",
       "Automated CI/CD processes with Jenkins pipelines (build/test/package/deploy), reducing deployment time by 56% and improving release frequency.",
       "Built and packaged Java services with Maven, reducing build failures by 32% by standardizing dependency versions and build profiles.",
-      "Contributed to Next.js-based frontend development for client-facing applications, focusing on component reusability and performance optimization."
+      "Contributed to 20+ React-based frontend components in client-facing applications, focusing on component reusability and performance optimization."
     ]
   },
   {

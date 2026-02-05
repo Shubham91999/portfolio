@@ -173,7 +173,10 @@ export default function About() {
               </motion.a>
 
               <motion.a
-                href="#" // Placeholder for resume
+                href="/Shubham_Kulkarni_portfolio.pdf"
+                download="Shubham_Kulkarni_portfolio.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="inline-flex items-center gap-2 border border-zinc-900 dark:border-white text-zinc-900 dark:text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors duration-200"

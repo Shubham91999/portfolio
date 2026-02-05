@@ -72,6 +72,7 @@ export const SkillsParallax = () => {
                         title={skill.name}
                         icon={skill.icon}
                         color={skill.color}
+                        darkColor={(skill as any).darkColor}
                         translate={0}
                       />
                     ))}
