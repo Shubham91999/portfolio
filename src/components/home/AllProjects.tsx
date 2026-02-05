@@ -4,7 +4,7 @@ import Image from "next/image";
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { CardBody, CardContainer, CardItem } from "../ui/3d-card";
-import { projects, projectCategories, ProjectCategory } from "../../lib/metadata";
+import { projects, projectCategories, ProjectCategory, featuredProjectIds } from "../../lib/metadata";
 import { IconType } from "react-icons";
 import imageLoader from "../../lib/imageLoader";
 import { useTheme } from 'next-themes';
@@ -39,14 +39,31 @@ const itemVariants = {
   show: { opacity: 1, y: 0 },
 };
 
+const INITIAL_VISIBLE = 6;
+
 export function AllProjects(): JSX.Element {
   const { theme } = useTheme();
   const isDark = theme === 'dark';
   const [activeCategory, setActiveCategory] = useState<ProjectCategory>("All");
+  const [isExpanded, setIsExpanded] = useState(false);
 
   const filteredProjects = activeCategory === "All"
     ? projects
     : projects.filter((p) => p.category === activeCategory);
+
+  const displayedProjects = (() => {
+    if (isExpanded) return filteredProjects;
+    if (activeCategory === "All") {
+      const byId = new Map(projects.map((p) => [p.id, p]));
+      return featuredProjectIds
+        .slice(0, INITIAL_VISIBLE)
+        .map((id) => byId.get(id))
+        .filter(Boolean) as typeof projects;
+    }
+    return filteredProjects.slice(0, INITIAL_VISIBLE);
+  })();
+
+  const hasMore = filteredProjects.length > INITIAL_VISIBLE;
 
   const getCategoryCount = (category: ProjectCategory) => {
     if (category === "All") return projects.length;
@@ -113,7 +130,7 @@ export function AllProjects(): JSX.Element {
           viewport={{ once: true }}
         >
           <AnimatePresence mode="popLayout">
-            {filteredProjects.map((project: Project) => (
+            {displayedProjects.map((project: Project) => (
               <motion.div
                 key={project.id}
                 variants={itemVariants}
@@ -188,30 +205,31 @@ export function AllProjects(): JSX.Element {
           </AnimatePresence>
         </motion.div>
 
-        <motion.div
-          className="flex justify-center mt-12"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.5 }}
-        >
-          <a
-            href="https://github.com/Shubham91999"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`group relative px-5 py-2 rounded-full text-sm font-medium ${isDark
-              ? 'bg-gradient-to-r from-violet-600 to-purple-600 text-white shadow-[0_0_15px_rgba(168,85,247,0.5)]'
-              : 'bg-gradient-to-r from-violet-900 to-purple-700 text-white shadow-[0_0_15px_rgba(168,85,247,0.35)]'
-              } opacity-90 hover:opacity-100 transition-all duration-300 hover:shadow-[0_0_25px_rgba(168,85,247,0.45)] border border-purple-500/50 hover:scale-105`}
+        {(hasMore || isExpanded) && (
+          <motion.div
+            className="flex justify-center mt-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.5 }}
           >
-            <span className="relative z-10 flex items-center">
-              View More Projects
-              <span className="inline-block ml-1 transition-transform duration-300 group-hover:translate-x-1">
-                →
+            <button
+              type="button"
+              onClick={() => setIsExpanded((e) => !e)}
+              className={`group relative px-5 py-2 rounded-full text-sm font-medium ${isDark
+                ? 'bg-gradient-to-r from-violet-600 to-purple-600 text-white shadow-[0_0_15px_rgba(168,85,247,0.5)]'
+                : 'bg-gradient-to-r from-violet-900 to-purple-700 text-white shadow-[0_0_15px_rgba(168,85,247,0.35)]'
+                } opacity-90 hover:opacity-100 transition-all duration-300 hover:shadow-[0_0_25px_rgba(168,85,247,0.45)] border border-purple-500/50 hover:scale-105`}
+            >
+              <span className="relative z-10 flex items-center">
+                {isExpanded ? "Show less" : "View more projects"}
+                <span className="inline-block ml-1 transition-transform duration-300 group-hover:translate-x-1">
+                  {isExpanded ? "↑" : "→"}
+                </span>
               </span>
-            </span>
-          </a>
-        </motion.div>
+            </button>
+          </motion.div>
+        )}
       </div>
     </div>
   );

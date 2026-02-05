@@ -331,12 +331,15 @@ export type ProjectCategory = "All" | "AI/ML" | "Data" | "Full Stack";
 
 export const projectCategories: ProjectCategory[] = ["All", "AI/ML", "Data", "Full Stack"];
 
+/** Project IDs to show initially when "All" is selected (max 6). */
+export const featuredProjectIds: number[] = [1, 9, 10, 13, 16, 14];
+
 export const projects = [
   {
     id: 1,
-    title: "AI Portfolio Project",
+    title: "Portfolio Project",
     des: "A high-performance portfolio website built with Next.js, Framer Motion, and Tailwind CSS.",
-    img: "images/projects/project1.jpg",
+    img: "images/projects/portfolio_placeholder.png",
     icons: [
       { icon: SiTypescript, color: "#3178C6" },
       { icon: SiNextdotjs, color: "#000000" },
@@ -509,6 +512,42 @@ export const projects = [
       { icon: SiScikitlearn, color: "#F7931E" },
     ],
     link: "https://github.com/Shubham91999/Credit-Card-Fraud-Detection",
+    category: "AI/ML" as ProjectCategory,
+  },
+  {
+    id: 15,
+    title: "SML: Regression and Classification",
+    des: "Implementation and visualization of core Machine Learning algorithms — Linear Regression, Gradient Descent, and Logistic Regression.",
+    img: "images/projects/sml_regression_classification.png",
+    icons: [
+      { icon: SiPython, color: "#3776AB" },
+      { icon: SiScikitlearn, color: "#F7931E" },
+    ],
+    link: "https://github.com/Shubham91999/SML_Regression-Classification",
+    category: "AI/ML" as ProjectCategory,
+  },
+  {
+    id: 16,
+    title: "CropSage",
+    des: "Machine learning–based crop prediction system to recommend optimal crops based on soil, rainfall, and weather conditions.",
+    img: "images/projects/cropsage.png",
+    icons: [
+      { icon: SiPython, color: "#3776AB" },
+      { icon: SiScikitlearn, color: "#F7931E" },
+    ],
+    link: "https://github.com/Shubham91999/CropSage",
+    category: "AI/ML" as ProjectCategory,
+  },
+  {
+    id: 17,
+    title: "House Price Prediction",
+    des: "Data science pipeline to predict house prices: data preprocessing, feature engineering, model selection, and evaluation to find the best predictive model.",
+    img: "images/projects/house_price_prediction.png",
+    icons: [
+      { icon: SiPython, color: "#3776AB" },
+      { icon: SiScikitlearn, color: "#F7931E" },
+    ],
+    link: "https://github.com/Shubham91999/House_Price_Prediction",
     category: "AI/ML" as ProjectCategory,
   },
 ];
