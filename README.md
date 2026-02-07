@@ -73,6 +73,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Author
 
 **Shubham Kulkarni**
-- Portfolio: [https://shubham-kulkarni.com/](https://shubham-kulkarni.com/)
+- Portfolio: [https://shubham-kulkarni.com/]([https://shubham-kulkarni.com/](https://shubham91999.github.io/portfolio/))
 - LinkedIn: [Shubham-Kulkarni](https://www.linkedin.com/in/shubham9199/)
 - GitHub: [@Shubham91999](https://github.com/Shubham91999)
