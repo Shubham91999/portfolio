@@ -173,7 +173,7 @@ export default function About() {
               </motion.a>
 
               <motion.a
-                href="/Shubham_Kulkarni_portfolio.pdf"
+                href={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/Shubham_Kulkarni_portfolio.pdf`}
                 download="Shubham_Kulkarni_portfolio.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
