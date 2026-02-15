@@ -20,7 +20,7 @@ import {
   SiGooglebard, SiVisualstudiocode
 } from "react-icons/si";
 
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+export const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 
 export const siteMetadata = {
   title: 'Shubham Kulkarni | Portfolio',

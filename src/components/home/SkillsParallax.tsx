@@ -8,6 +8,7 @@ import { useTheme } from "next-themes";
 import Image from "next/image";
 
 import { skillGroups } from "../../lib/metadata";
+import imageLoader from "../../lib/imageLoader";
 
 export const SkillsParallax = () => {
   const ref = useRef(null);
@@ -146,6 +147,7 @@ const SkillCard = ({
           {typeof icon === 'string' ? (
             <div className="relative w-6 h-6 sm:w-8 sm:h-8 md:w-12 md:h-12 lg:w-16 lg:h-16 flex items-center justify-center">
               <Image
+                loader={imageLoader}
                 src={icon}
                 alt={title}
                 width={64}
