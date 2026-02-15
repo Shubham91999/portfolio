@@ -147,9 +147,9 @@ export const skillGroups = [
     category: "AI Coding Assistants",
     skills: [
       { name: "GitHub Copilot", icon: SiGithub, color: "#181717", darkColor: "#FFFFFF" },
-      { name: "Claude Code", icon: "/icons/claude-code.png", color: "#FFD21E" },
-      { name: "Gemini CLI", icon: "/icons/gemini-cli.png", color: "#4285F4" },
-      { name: "Cursor", icon: "/icons/cursor.png", color: "#007ACC" },
+      { name: "Claude Code", icon: "icons/claude-code.png", color: "#FFD21E" },
+      { name: "Gemini CLI", icon: "icons/gemini-cli.png", color: "#4285F4" },
+      { name: "Cursor", icon: "icons/cursor.png", color: "#007ACC" },
     ]
   },
   {
