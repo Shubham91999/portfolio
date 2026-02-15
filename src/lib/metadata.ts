@@ -4,7 +4,7 @@ import {
   FaCloud, FaAndroid, FaMicrochip, FaRaspberryPi,
   FaTasks, FaStripeS, FaJava, FaInstagram, FaPhone,
   FaRobot, FaBrain, FaCode, FaTerminal, FaCubes,
-  FaProjectDiagram, FaSync
+  FaProjectDiagram, FaSync, FaCheckCircle
 } from "react-icons/fa";
 import {
   SiSpringboot, SiMysql, SiTypescript, SiNextdotjs,
@@ -14,7 +14,7 @@ import {
   SiFirebase, SiXcode, SiDjango, SiReact, SiLinkedin,
   SiLeetcode, SiPython, SiCplusplus, SiJavascript,
   SiFastapi, SiSqlalchemy, SiPydantic, SiScikitlearn,
-  SiPytorch, SiTensorflow,
+  SiPytorch, SiTensorflow, SiGoogle, SiPytest,
   SiMongodb, SiAmazondynamodb, SiSnowflake, SiGit,
   SiDocker, SiKubernetes, SiGooglecloud, SiApachekafka,
   SiGooglebard, SiVisualstudiocode
@@ -558,6 +558,49 @@ export const projects = [
       { icon: SiScikitlearn, color: "#F7931E" },
     ],
     link: "https://github.com/Shubham91999/House_Price_Prediction",
+    category: "AI/ML" as ProjectCategory,
+  },
+  {
+    id: 18,
+    title: "Real-Time Network Traffic Analysis Tool",
+    des: "A Python-based real-time network traffic analysis tool that captures, processes, and visualizes live network packets using an interactive Streamlit dashboard.",
+    img: "images/projects/network_traffic_analysis.png",
+    icons: [
+      { icon: SiPython, color: "#3776AB" },
+      { icon: SiJavascript, color: "#F7DF1E" },
+      { icon: FaTerminal, color: "#4D4D4D" },
+      { icon: FaProjectDiagram, color: "#8B5CF6" },
+    ],
+    link: "https://github.com/Shubham91999/Real-Time-Network-Traffic",
+    category: "Full Stack" as ProjectCategory,
+  },
+  {
+    id: 19,
+    title: "Rate Limiter - Singleton",
+    des: "A per-API-key rate limiter built with Spring Boot using the Singleton design pattern and Token Bucket algorithm.",
+    img: "images/projects/rate_limiter_singleton.jpg",
+    icons: [
+      { icon: SiSpringboot, color: "#6DB33F" },
+      { icon: FaJava, color: "#007396" },
+      { icon: FaCubes, color: "#101010" },
+      { icon: FaCheckCircle, color: "#28A745" },
+    ],
+    link: "https://github.com/Shubham91999/Rate-Limiter-Singleton",
+    category: "Full Stack" as ProjectCategory,
+  },
+  {
+    id: 20,
+    title: "SnowBridge AI",
+    des: "AI-powered SQL migration agent converting Oracle/Teradata to Snowflake SQL with high accuracy.",
+    img: "images/projects/snowbridge_ai.jpg",
+    icons: [
+      { icon: SiPython, color: "#3776AB" },
+      { icon: SiSnowflake, color: "#29B6F6" },
+      { icon: SiGoogle, color: "#4285F4" },
+      { icon: SiFastapi, color: "#009688" },
+      { icon: SiDocker, color: "#2496ED" },
+    ],
+    link: "https://github.com/Shubham91999/SnowBridge-AI",
     category: "AI/ML" as ProjectCategory,
   },
 ];
