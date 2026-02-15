@@ -16,7 +16,8 @@ import {
   SiFastapi, SiSqlalchemy, SiPydantic, SiScikitlearn,
   SiPytorch, SiTensorflow,
   SiMongodb, SiAmazondynamodb, SiSnowflake, SiGit,
-  SiDocker, SiKubernetes, SiGooglecloud, SiApachekafka
+  SiDocker, SiKubernetes, SiGooglecloud, SiApachekafka,
+  SiGooglebard, SiVisualstudiocode
 } from "react-icons/si";
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
@@ -27,7 +28,7 @@ export const siteMetadata = {
   author: 'Shubham Kulkarni',
   siteUrl: 'https://shubham-kulkarni.com', // Placeholder
   twitterHandle: '@shubham9199', // Placeholder
-  email: 'skulka86@asu.edu',
+  email: '02shubhamkulkarni@gmail.com',
   phone: '+1 602-570-5459',
   location: 'Seattle, Washington',
   roles: [
@@ -140,6 +141,15 @@ export const skillGroups = [
       { name: "Kubernetes", icon: SiKubernetes, color: "#326CE5" },
       { name: "AWS", icon: FaAws, color: "#FF9900" },
       { name: "GCP", icon: SiGooglecloud, color: "#4285F4" },
+    ]
+  },
+  {
+    category: "AI Coding Assistants",
+    skills: [
+      { name: "GitHub Copilot", icon: SiGithub, color: "#181717", darkColor: "#FFFFFF" },
+      { name: "Claude Code", icon: "/icons/claude-code.png", color: "#FFD21E" },
+      { name: "Gemini CLI", icon: "/icons/gemini-cli.png", color: "#4285F4" },
+      { name: "Cursor", icon: "/icons/cursor.png", color: "#007ACC" },
     ]
   },
   {

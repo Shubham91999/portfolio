@@ -5,6 +5,7 @@ import { FaJava, FaJs, FaPython, FaHtml5, FaCss3Alt, FaReact, FaNodeJs, FaAngula
 import { SiTypescript, SiCplusplus, SiSpringboot, SiNextdotjs, SiExpress, SiTailwindcss, SiMysql, SiMongodb, SiPostgresql, SiFirebase, SiGooglecloud, SiKubernetes, SiJenkins, SiPostman } from "react-icons/si";
 import { TbApi } from "react-icons/tb";
 import { useTheme } from "next-themes";
+import Image from "next/image";
 
 import { skillGroups } from "../../lib/metadata";
 
@@ -104,13 +105,13 @@ const Header = () => {
 
 const SkillCard = ({
   title,
-  icon: Icon,
+  icon,
   color,
   darkColor,
   translate,
 }: {
   title: string;
-  icon: React.ElementType;
+  icon: any;
   color: string;
   darkColor?: string;
   translate: any;
@@ -142,10 +143,27 @@ const SkillCard = ({
           }}
           className="relative"
         >
-          <Icon
-            className="w-6 h-6 sm:w-8 sm:h-8 md:w-12 md:h-12 lg:w-16 lg:h-16 transition-transform duration-300"
-            style={{ color: iconColor }}
-          />
+          {typeof icon === 'string' ? (
+            <div className="relative w-6 h-6 sm:w-8 sm:h-8 md:w-12 md:h-12 lg:w-16 lg:h-16 flex items-center justify-center">
+              <Image
+                src={icon}
+                alt={title}
+                width={64}
+                height={64}
+                className="object-contain transition-transform duration-300 group-hover/skill:scale-110"
+              />
+            </div>
+          ) : (
+            (() => {
+              const IconComponent = icon;
+              return (
+                <IconComponent
+                  className="w-6 h-6 sm:w-8 sm:h-8 md:w-12 md:h-12 lg:w-16 lg:h-16 transition-transform duration-300"
+                  style={{ color: iconColor }}
+                />
+              );
+            })()
+          )}
           <div
             className="absolute inset-0 blur-lg opacity-25 transition-opacity duration-300 group-hover/skill:opacity-40"
             style={{ backgroundColor: color }}
