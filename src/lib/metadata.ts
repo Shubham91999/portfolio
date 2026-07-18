@@ -167,12 +167,12 @@ export const skillGroups = [
 // Placeholders for Projects, Education, and Experience (to be updated later)
 export const experiences = [
   {
-    title: "AI/ML Engineer Intern",
-    company: "PACCAR (Kenworth Truck Company)",
-    location: "Seattle, WA",
-    type: "Internship",
-    date: "May 2025 - Jan 2026",
-    skills: ["Python", "FastAPI", "Java", "AWS", "React", "Next.js", "TypeScript", "Docker", "Kubernetes"],
+    title: "Software Development Engineer",
+    company: "PACCAR",
+    location: "Renton, WA",
+    type: "Full-time",
+    date: "May 2025 - Present",
+    skills: ["Python", "Kafka", "Apache Beam", "Java", "AWS", "React", "TypeScript", "Docker", "Kubernetes"],
     desc: [
       "Developed backend microservices for ML-driven recommendations via APIs, achieving 94% accuracy in generation and delivering $780K in operational savings.",
       "Engineered robust CI/CD pipelines using Docker and GitHub Actions for AWS EKS (Kubernetes) deployments, reducing feedback cycles from 4 days to 3 hours.",
